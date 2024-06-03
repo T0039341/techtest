@@ -1,0 +1,33 @@
+@if (breedDetails$ | async; as breedDetails){
+
+<ng-container>
+  <div class="card">
+    <img
+      [src]="breedDetails.image"
+      class="card-image"
+      [alt]="breedDetails.name + ' image'"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ breedDetails.name }}</h5>
+      <p class="card-text">{{ breedDetails.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li><strong>Size:</strong> {{ breedDetails.size }}</li>
+      <li><strong>Origin:</strong> {{ breedDetails.origin }}</li>
+      <li>
+        <strong>Life Expectancy:</strong> {{ breedDetails.lifeExpectancy }}
+      </li>
+      <li>
+        <strong>Temperament:</strong>
+        <ul>
+          @for (temperament of breedDetails.temperament; track temperament) {
+
+          <li>{{ temperament }}</li>
+          }
+        </ul>
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
+}
